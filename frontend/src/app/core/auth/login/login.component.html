@@ -1,0 +1,29 @@
+<div class="container" [formGroup]="form">
+  <app-card>
+    <div class="controls-container">
+      <div class="control">
+        <label htmlFor="field-login">Login</label>
+        <input
+          pInputText
+          id="field-login"
+          type="text"
+          aria-describedby="login-help"
+          formControlName="login"
+        />
+      </div>
+      <div class="control">
+        <label htmlFor="field-password">Password</label>
+        <input
+          pInputText
+          id="field-password"
+          type="password"
+          aria-describedby="password-help"
+          formControlName="password"
+        />
+      </div>
+    </div>
+    <div class="footer">
+      <button pButton type="submit" (click)="onSubmit()">Submit</button>
+    </div>
+  </app-card>
+</div>

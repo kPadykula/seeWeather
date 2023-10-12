@@ -1,0 +1,17 @@
+@import "primeng/resources/themes/rhea/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100svh;
+  width: 100svw;
+
+  background-image: url("/assets/images/background.svg");
+  background-position: bottom;
+  background-repeat: space;
+  background-size: cover;
+}

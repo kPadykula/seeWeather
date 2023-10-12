@@ -1,0 +1,13 @@
+{
+    "name": "see-weather",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "concurrently --kill-others \"npm run ---prefix backend start:dev\" \"npm run --prefix frontend start\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^8.2.1"
+    }
+}
