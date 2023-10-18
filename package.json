@@ -2,6 +2,8 @@
     "name": "see-weather",
     "version": "1.0.0",
     "scripts": {
+        "docker:up": "docker compose up -d",
+        "docker:down": "docker compose down",
         "dev": "concurrently --kill-others \"npm run ---prefix backend start:dev\" \"npm run --prefix frontend start\""
     },
     "keywords": [],
