@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -9,11 +8,7 @@ import { AuthSelectors } from './auth-store';
   providedIn: 'root',
 })
 export class AuthGuard {
-  constructor(
-    private router: Router,
-    private store: Store,
-    private http: HttpClient
-  ) {}
+  constructor(private router: Router, private store: Store) {}
 
   isAuth(): Observable<boolean> {
     return this.store.select(AuthSelectors.isAuth).pipe(

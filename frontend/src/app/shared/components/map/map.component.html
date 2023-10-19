@@ -1,0 +1,13 @@
+<div class="map-container unselectable">
+  <div class="image-keeper">
+    <img
+      src="assets/images/poland-map.svg"
+      alt="Map of poland"
+      class="image"
+      #image
+    />
+    <ng-container *ngFor="let localization of localizations | async">
+      <div appWeatherPin [localization]="localization"></div>
+    </ng-container>
+  </div>
+</div>

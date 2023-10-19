@@ -1,0 +1,50 @@
+:host {
+  position: absolute;
+
+  .range {
+    max-width: 100px;
+    max-height: 50px;
+  }
+
+  .weather-pin {
+    width: 100%;
+    height: 100%;
+
+    .name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .pin {
+    position: absolute;
+
+    bottom: -22px;
+    right: -25px;
+    transform: rotate(260deg);
+
+    &.bottom {
+      bottom: 47px;
+      transform: rotate(180deg);
+    }
+
+    &.right {
+      right: 0;
+      left: -24px;
+      transform: rotate(0deg);
+
+      &.bottom {
+        transform: rotate(90deg);
+      }
+    }
+
+    max-width: 40px;
+    max-height: 40px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   FormBuilder,
@@ -5,20 +6,27 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ICredentials } from '@app/shared/models/credentials';
+import { IUser } from '@app/shared/models/user';
+import { Observable } from 'rxjs';
 
 export interface ICredentialsForm {
-  login: FormControl<string | null>;
+  email: FormControl<string | null>;
   password: FormControl<string | null>;
 }
 
 @Injectable()
 export class LoginService {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   createForm(): FormGroup<ICredentialsForm> {
     return this.fb.group({
-      login: this.fb.control<string | null>(null, Validators.required),
+      email: this.fb.control<string | null>(null, Validators.required),
       password: this.fb.control<string | null>(null, Validators.required),
     });
+  }
+
+  login(credentials: ICredentials): Observable<Required<IUser>> {
+    return this.http.post<Required<IUser>>('api/auth', credentials);
   }
 }

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, Input } from '@angular/core';
     <div class="card">
       <ng-content></ng-content>
     </div>`,
+  standalone: true,
+  imports: [CommonModule],
   styles: [
     `
       .info {

@@ -12,10 +12,9 @@ export const initialAuthState: IAuthState = {
 
 export const authStoreReducer = createReducer(
   initialAuthState,
-  on(authActions.loginSuccessfuly, (_state, { isAuth, authToken }) => ({
+  on(authActions.loginSuccessfully, (_state, { user }) => ({
     ..._state,
-    isAuth,
-    authToken,
+    isAuth: true,
   })),
   on(authActions.loginFail, (_state) => initialAuthState),
   on(authActions.logout, (_state) => initialAuthState)

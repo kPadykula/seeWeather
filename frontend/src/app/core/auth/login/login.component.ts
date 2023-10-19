@@ -1,6 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { ICredentialsForm, LoginService } from './login.service';
 import { FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { authActions } from '../auth-store/auth-store.actions';
+import { ICredentials } from '@app/shared/models/credentials';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +20,18 @@ export class LoginComponent {
 
   form: FormGroup<ICredentialsForm> = this.service.createForm();
 
-  constructor(private service: LoginService) {}
+  constructor(private service: LoginService, private store: Store) {}
 
   onSubmit() {
-    console.log(this.form.getRawValue());
+    if (this.form.invalid) {
+      return;
+    }
+
+    const credentials: ICredentials = {
+      email: this.form.controls.email.value ?? '',
+      password: this.form.controls.password.value ?? '',
+    };
+
+    this.store.dispatch(authActions.login({ credentials }));
   }
 }

@@ -1,0 +1,14 @@
+<app-card class="range">
+  <div class="weather-pin">
+    <div class="name">
+      {{ localization?.name }}
+    </div>
+    <div class="temp">
+      {{ weatherPinInfo?.temperature?.min }}&deg;C -
+      {{ weatherPinInfo?.temperature?.max }}&deg;C
+    </div>
+  </div>
+</app-card>
+<div class="pin" #pin>
+  <img src="assets/images/pin.svg" alt="map pin" />
+</div>

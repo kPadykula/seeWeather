@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from './prime.module';
 import { ComponentsModule } from './components/components.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
     FormsModule,
     HttpClientModule,
     CommonModule,
+    RouterModule,
     PrimeNgModule,
     ComponentsModule,
   ],
@@ -18,6 +20,7 @@ import { ComponentsModule } from './components/components.module';
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
+    RouterModule,
     PrimeNgModule,
     ComponentsModule,
   ],

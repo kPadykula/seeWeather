@@ -11,7 +11,7 @@ export class AuthController {
   login(@Body() credentials: Credentials, @Res() res: Response) {
     return this.service.login(credentials).then((user) => {
       if (user) {
-        return res.status(HttpStatus.FOUND).json(user);
+        return res.status(HttpStatus.OK).json(user);
       } else {
         return res.status(HttpStatus.UNAUTHORIZED).json({
           message: 'Invalid credentials',

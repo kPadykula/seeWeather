@@ -1,0 +1,12 @@
+<div class="home-container">
+  <div class="page">
+    <ng-container *ngIf="!isAuth; else welcome">
+      <app-login-cloud></app-login-cloud>
+    </ng-container>
+    <app-map></app-map>
+  </div>
+</div>
+
+<ng-template #welcome>
+  <app-welcome></app-welcome>
+</ng-template>

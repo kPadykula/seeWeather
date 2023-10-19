@@ -2,13 +2,13 @@
   <app-card>
     <div class="controls-container">
       <div class="control">
-        <label htmlFor="field-login">Login</label>
+        <label htmlFor="email-login">Email</label>
         <input
           pInputText
-          id="field-login"
-          type="text"
-          aria-describedby="login-help"
-          formControlName="login"
+          id="email-login"
+          type="email"
+          aria-describedby="email-help"
+          formControlName="email"
         />
       </div>
       <div class="control">
@@ -23,7 +23,14 @@
       </div>
     </div>
     <div class="footer">
-      <button pButton type="submit" (click)="onSubmit()">Submit</button>
+      <button
+        pButton
+        type="submit"
+        [disabled]="form.invalid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
     </div>
   </app-card>
 </div>
