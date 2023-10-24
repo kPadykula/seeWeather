@@ -8,7 +8,7 @@ import { EMPTY, switchMap, take } from 'rxjs';
   selector: 'app-welcome',
   template: ` <div class="welcome-container">
     <app-card>
-      <div class="name unselectable">Good to see you again, {{ name }}!</div>
+      <div class="name no-selectable">Good to see you again, {{ name }}!</div>
     </app-card>
   </div>`,
   styleUrls: ['./welcome.component.scss'],

@@ -5,6 +5,7 @@ import { MapCoordination } from './map-localizations';
 
 export interface MapStoreState {
   localizations: (Localization & MapCoordination)[];
+  selected: string;
 }
 
 @Injectable()
@@ -12,6 +13,7 @@ export class MapStore extends ComponentStore<MapStoreState> {
   constructor() {
     super({
       localizations: [],
+      selected: '',
     });
   }
 
@@ -22,5 +24,16 @@ export class MapStore extends ComponentStore<MapStoreState> {
     })
   );
 
+  readonly setSelectedPin = this.updater((_state, pin: string) => ({
+    ..._state,
+    selected: pin,
+  }));
+
+  readonly removeSelected = this.updater((_state) => ({
+    ..._state,
+    selected: '',
+  }));
+
   readonly localizations$ = this.select((_state) => _state.localizations);
+  readonly selectedPin = this.select((_state) => _state.selected);
 }

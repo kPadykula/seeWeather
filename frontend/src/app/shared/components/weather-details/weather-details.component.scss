@@ -1,0 +1,18 @@
+@import "src/assets/styles/variables";
+
+.details-container {
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.visible {
+    animation: fadeInUp both 600ms;
+    animation-delay: 700ms;
+  }
+
+  &.hidden {
+    animation: fadeOut both 600ms;
+  }
+}

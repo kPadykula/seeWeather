@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
   `,
   styles: [
     `
+      @import 'src/assets/styles/variables';
+
       .container {
         width: 100%;
         display: flex;
@@ -22,6 +24,9 @@ import { Component } from '@angular/core';
           cursor: pointer;
           transform: scale(1.05);
         }
+
+        animation: fadeInUp both 600ms;
+        animation-delay: 200ms;
       }
 
       a {

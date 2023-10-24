@@ -1,0 +1,27 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  animation: fadeInUp both 600ms;
+  animation-delay: 400ms;
+}
+
+.container {
+  max-width: 400px;
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .pi:hover {
+    transform: scale(1.1);
+  }
+
+  .display {
+    font-weight: 600;
+  }
+
+  .arrow {
+    min-width: 25px;
+  }
+}

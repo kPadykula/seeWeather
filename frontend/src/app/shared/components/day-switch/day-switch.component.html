@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <app-card>
+    <div class="container no-selectable">
+      <div class="left-arrow arrow">
+        <i
+          class="pi pi-chevron-left pointer"
+          style="font-size: 1.2rem"
+          (click)="onDayBefore()"
+          *ngIf="isDayBeforeEnabled"
+        ></i>
+      </div>
+      <div class="display">{{ dayToDisplay }}</div>
+      <div class="right-arrow arrow">
+        <i
+          class="pi pi-chevron-right pointer"
+          style="font-size: 1.2rem"
+          (click)="onNextDay()"
+          *ngIf="isDayAfterEnabled"
+        ></i>
+      </div>
+    </div>
+  </app-card>
+</div>

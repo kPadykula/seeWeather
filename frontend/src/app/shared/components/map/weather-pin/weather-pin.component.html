@@ -1,12 +1,9 @@
-<app-card class="range">
-  <div class="weather-pin">
+<app-card class="range" [class.hide]="!isSelected && isSelected !== null">
+  <div class="weather-pin pointer" (click)="onSelectPin()">
     <div class="name">
       {{ localization?.name }}
     </div>
-    <div class="temp">
-      {{ weatherPinInfo?.temperature?.min }}&deg;C -
-      {{ weatherPinInfo?.temperature?.max }}&deg;C
-    </div>
+    <div class="temp">{{ minTemp }}&deg;C - {{ maxTemp }}&deg;C</div>
   </div>
 </app-card>
 <div class="pin" #pin>
