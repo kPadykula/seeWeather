@@ -1,0 +1,15 @@
+.details-list-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px repeat(2, 1fr) 40px;
+  grid-template-rows: 1fr;
+
+  .info {
+    .icon {
+      width: 100%;
+    }
+    img {
+      width: 24px;
+    }
+  }
+}

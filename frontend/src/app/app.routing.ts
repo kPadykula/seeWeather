@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './content/home/home.component';
 import { LoginComponent } from './core/auth/login/login.component';
-import { isAuthGuard } from './core/auth/auth.guard';
+import { RegisterComponent } from './core/auth/register/register.component';
+import { isNotAuth } from './core/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +13,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [isAuthGuard],
+    canActivate: [isNotAuth],
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [isNotAuth],
   },
   { path: '**', redirectTo: 'home' },
 ];

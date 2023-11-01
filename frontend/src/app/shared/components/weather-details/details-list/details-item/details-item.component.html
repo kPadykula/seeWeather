@@ -1,0 +1,28 @@
+<div class="details-list-item">
+  <div class="hour info">
+    <div class="icon">
+      <img src="assets/images/clock.svg" alt="Wind icon" />
+    </div>
+    {{ itemInfo.hour | number }}h
+  </div>
+  <div class="temperature info">
+    <div class="icon">
+      <img src="assets/images/sun.svg" alt="Wind icon" />
+    </div>
+    {{ itemInfo.temperature }}&deg;C
+  </div>
+  <div class="wind info">
+    <div class="icon">
+      <img src="assets/images/wind.svg" alt="Wind icon" />
+    </div>
+
+    {{ itemInfo.speed }} m/s
+  </div>
+  <div class="rain info">
+    <div class="icon">
+      <img src="assets/images/rain.svg" alt="Wind icon" />
+    </div>
+
+    {{ itemInfo.prediction }}%
+  </div>
+</div>

@@ -138,11 +138,14 @@ export class MapService {
     min: number;
     max: number;
   } {
-    console.log(response);
     const dayDate = response.temperature
       .find((day) => {
-        const currentDate = moment(date).format('YYYY-MM-DD');
-        const thisDate = moment(day.day).format('YYYY-MM-DD');
+        const currentDate = moment(date)
+          .subtract(1, 'hour')
+          .format('YYYY-MM-DD');
+        const thisDate = moment(day.day)
+          .subtract(1, 'hour')
+          .format('YYYY-MM-DD');
         if (currentDate === thisDate) return true;
         else return false;
       })

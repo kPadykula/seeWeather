@@ -2,12 +2,18 @@
 
 .wrapper {
   animation: fadeInUp both 600ms;
-  animation-delay: 400ms;
+  animation-delay: 900ms;
+
+  width: 100%;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   max-width: 400px;
-
+  min-width: 200px;
   display: flex;
   width: 100%;
   justify-content: center;

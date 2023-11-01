@@ -25,18 +25,28 @@
             formControlName="password"
           />
         </div>
+        <div class="control">
+          <label htmlFor="field-name">Name</label>
+          <input
+            pInputText
+            id="field-name"
+            type="text"
+            aria-describedby="name-help"
+            formControlName="name"
+          />
+        </div>
       </div>
       <div class="footer">
         <div class="info">
-          You don't have account? <a [routerLink]="'/register'">Create one!</a>
+          You have account? <a [routerLink]="'/login'">Login!</a>
         </div>
         <button
           pButton
-          type="submit"
           [disabled]="form.invalid"
           (click)="onSubmit()"
+          type="submit"
         >
-          Submit
+          Register
         </button>
       </div>
     </app-card>

@@ -26,14 +26,14 @@ export type TemperatureByHour = {
 };
 
 export type TemperatureByDay = {
-  day: Date;
+  day: Date | string;
   dayTemperature: TemperatureByHour[];
 };
 
 export type RainPrediction = RainPredictionByDay[];
 
 export type RainPredictionByDay = {
-  day: Date;
+  day: Date | string;
   dayPrediction: RainPredictionByHour[];
 };
 
@@ -45,7 +45,7 @@ export type RainPredictionByHour = {
 export type WindSpeed = WindSpeedByDay[];
 
 export type WindSpeedByDay = {
-  day: Date;
+  day: Date | string;
   dayWindSpeed: WindSpeedByHour[];
 };
 

@@ -10,12 +10,17 @@ import { AuthSelectors } from './auth-store';
 export class AuthGuard {
   constructor(private router: Router, private store: Store) {}
 
-  isAuth(): Observable<boolean> {
+  isNotAuth(): Observable<boolean> {
     return this.store.select(AuthSelectors.isAuth).pipe(
       tap((isAuth) => isAuth && this.router.navigate(['home'])),
       map((isAuth) => !isAuth)
     );
   }
+
+  isAuth(): Observable<boolean> {
+    return this.store.select(AuthSelectors.isAuth);
+  }
 }
 
 export const isAuthGuard: CanActivateFn = () => inject(AuthGuard).isAuth();
+export const isNotAuth: CanActivateFn = () => inject(AuthGuard).isNotAuth();

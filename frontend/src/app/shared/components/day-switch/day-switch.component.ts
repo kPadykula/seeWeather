@@ -20,6 +20,7 @@ export class DaySwitchComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
+    this.getInitDate();
     this.checkDaysSwitchEnabled();
     this.displayDate(this.currentDate);
   }
@@ -36,6 +37,13 @@ export class DaySwitchComponent implements OnInit {
     this.checkDaysSwitchEnabled();
     this.displayDate(this.currentDate);
     this.dataChange();
+  }
+
+  private getInitDate(): void {
+    const currentDate = new Date();
+    const dayBeforeCurrent = moment(currentDate).subtract(1, 'day');
+    this.currentDate = dayBeforeCurrent.toDate();
+    this.initialDate = dayBeforeCurrent.toDate();
   }
 
   private checkDaysSwitchEnabled(): void {

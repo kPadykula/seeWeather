@@ -9,10 +9,11 @@
 
   &.visible {
     animation: fadeInUp both 600ms;
-    animation-delay: 700ms;
+    height: auto;
   }
 
   &.hidden {
     animation: fadeOut both 600ms;
+    height: 1px;
   }
 }

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
@@ -58,7 +59,8 @@ export class WeatherPinComponent implements OnInit, OnDestroy {
   constructor(
     private service: MapService,
     private store: Store,
-    private mapStore: MapStore
+    private mapStore: MapStore,
+    private _cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -112,6 +114,7 @@ export class WeatherPinComponent implements OnInit, OnDestroy {
           );
           this.maxTemp = max;
           this.minTemp = min;
+          this._cdr.markForCheck();
         }
       });
   }

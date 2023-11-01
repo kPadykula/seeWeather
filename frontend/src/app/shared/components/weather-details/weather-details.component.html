@@ -1,3 +1,7 @@
 <div class="details-container" [ngClass]="isVisible ? 'visible' : 'hidden'">
-  <app-card></app-card>
+  <app-card>
+    <app-details-list
+      [selectedLocalization]="selectedLocalization"
+    ></app-details-list>
+  </app-card>
 </div>

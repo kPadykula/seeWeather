@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { coreActions } from './core-store.actions';
 import { Localization } from '@app/shared/models/localization';
 import { MappedApiResponse } from '@app/shared/components/map/map';
+import * as moment from 'moment';
 
 export interface ICoreState {
   name?: string;
@@ -13,7 +14,7 @@ export interface ICoreState {
 
 export const initialCoreState: ICoreState = {
   localizations: [],
-  currentDate: new Date(),
+  currentDate: moment().subtract(1, 'day').toDate(),
 };
 
 export const coreStoreReducer = createReducer(

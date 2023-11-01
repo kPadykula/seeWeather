@@ -1,0 +1,10 @@
+<div class="weather-details-list">
+  <div class="info">
+    {{ name }}
+  </div>
+  <ul>
+    <ng-container *ngFor="let weatherInfo of data | async">
+      <li appDetailsItem [itemInfo]="weatherInfo"></li>
+    </ng-container>
+  </ul>
+</div>

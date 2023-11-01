@@ -9,7 +9,7 @@ import { ICredentials } from '@app/shared/models/credentials';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [LoginService],
+  providers: [],
 })
 export class LoginComponent {
   @HostListener('keydown', ['$event']) onKeyDown = (e: any) => {

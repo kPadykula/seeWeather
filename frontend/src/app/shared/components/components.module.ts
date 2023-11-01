@@ -8,6 +8,8 @@ import { MapModule } from './map/map.module';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { DaySwitchComponent } from './day-switch/day-switch.component';
 import { CommonModule } from '@angular/common';
+import { DetailsItemComponent } from './weather-details/details-list/details-item/details-item.component';
+import { DetailsListComponent } from './weather-details/details-list/details-list.component';
 
 @NgModule({
   imports: [RouterModule, MapModule, CardComponent, CommonModule],
@@ -16,6 +18,8 @@ import { CommonModule } from '@angular/common';
     WelcomeComponent,
     WeatherDetailsComponent,
     DaySwitchComponent,
+    DetailsListComponent,
+    DetailsItemComponent,
   ],
   exports: [
     CardComponent,
