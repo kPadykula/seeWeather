@@ -5,15 +5,22 @@ You needs those packages to start:
 -   [NodeJs](https://nodejs.org/en)
 -   [Angular Cli](https://angular.io/cli)
 -   [NestJs](https://nestjs.com/)
+-   [Docker](https://www.docker.com/)
 
-To start install all dependencies in every folder when you see package.json
+To run app locally install all dependencies in every folder when you see package.json
 by typing
 
 ```
     npm install
 ```
 
-and after that type
+Then you need to start mongoDB container by typing
+
+```
+npm run docker:up
+```
+
+And to start servers type
 
 ```
     npm run dev
