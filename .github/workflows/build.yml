@@ -28,6 +28,7 @@ jobs:
 
             - name: Build Frontend
               run: |
+                  cd frontend
                   ng build
 
             - name: Deploy to GitHub Pages
