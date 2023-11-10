@@ -1,0 +1,47 @@
+:root {
+  .p-accordion {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 5px;
+
+    .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+      color: black;
+    }
+
+    .p-accordion-content {
+      background: transparent;
+      border: none;
+    }
+
+    .p-accordion-header-link {
+      color: black;
+      background-color: white;
+      border-radius: 1rem;
+    }
+  }
+
+  .p-confirm-popup {
+    border-radius: 1rem;
+  }
+
+  .p-button {
+    border-radius: 1rem;
+  }
+
+  .p-toast {
+    .p-toast-message {
+      border-radius: 1rem;
+    }
+  }
+
+  .p-dialog {
+    border-radius: 1rem;
+    .p-dialog-header {
+      border-radius: 1rem 1rem 0 0;
+    }
+
+    .p-dialog-content {
+      border-radius: 1rem 1rem 1rem 1rem;
+    }
+  }
+}

@@ -24,6 +24,10 @@ export const coreStoreReducer = createReducer(
     name,
   })),
   on(coreActions.setUserId, (_state, { id }) => ({ ..._state, id })),
+  on(coreActions.setUserLocalizations, (_state, { localizations }) => ({
+    ..._state,
+    localizations,
+  })),
   on(coreActions.setNewDate, (_state, { date }) => ({
     ..._state,
     currentDate: date,

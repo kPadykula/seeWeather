@@ -11,7 +11,7 @@ export interface MeteoApiResponse {
 }
 
 export type MappedApiResponse = Localization & MapCoordination & MappedResponse;
-
+export type MappedApiResponseWithoutMap = Localization & MappedResponse;
 export interface MappedResponse {
   temperature: Temperature;
   rainPrediction: RainPrediction;

@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MappedApiResponse } from '../../map/map';
+import { MappedApiResponse, MappedApiResponseWithoutMap } from '../../map/map';
 import { merge } from 'lodash';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, distinctUntilChanged, takeUntil } from 'rxjs';
@@ -16,7 +16,13 @@ import { DetailsListStore } from './details-list.store';
 })
 export class DetailsListComponent implements OnInit, OnDestroy {
   @Input({ required: true })
-  selectedLocalization!: Observable<MappedApiResponse | undefined>;
+  selectedLocalization!: Observable<
+    MappedApiResponse | MappedApiResponseWithoutMap | undefined
+  >;
+
+  @Input() showHeader: boolean = true;
+  @Input() hoursList: number[] = [5, 10, 15, 20];
+
   requiredInformation: ListInformation[] = [];
   name: string = '';
 
@@ -30,6 +36,7 @@ export class DetailsListComponent implements OnInit, OnDestroy {
   constructor(private store: Store, private listStore: DetailsListStore) {}
 
   ngOnInit(): void {
+    this.listStore.setNumberList(this.hoursList);
     this.subscribeData();
     this.subscribeDateChange();
   }

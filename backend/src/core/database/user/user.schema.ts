@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose';
-import { Localization } from '../localization/localization.schema';
 
 export const UserSchema = new mongoose.Schema({
   name: String,
@@ -22,11 +21,17 @@ async function validateEmail(email: String) {
 }
 
 export interface User extends Document {
+  readonly _id: string;
   readonly name: string;
   readonly password: string;
   readonly email: string;
   readonly isAdmin: boolean;
-  readonly localizations: Array<Localization>;
+  readonly localizations: Array<mongoose.Schema.Types.ObjectId>;
+}
+
+export interface LocalizationAssign {
+  localization: mongoose.Schema.Types.ObjectId;
+  user: mongoose.Schema.Types.ObjectId;
 }
 
 export interface Credentials {

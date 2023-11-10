@@ -5,12 +5,13 @@ import { merge } from 'lodash';
 
 interface DetailsListState {
   data?: ListInformation;
+  numberList: number[];
 }
 
 @Injectable()
 export class DetailsListStore extends ComponentStore<DetailsListState> {
   constructor() {
-    super({});
+    super({ numberList: [] });
   }
 
   readonly setData = this.updater((_state, data: ListInformation) => ({
@@ -26,6 +27,15 @@ export class DetailsListStore extends ComponentStore<DetailsListState> {
         merge(_state.data?.dayPrediction, _state.data?.dayTemperature),
         _state.data?.dayWindSpeed
       ) as ListItem[]
-    ).filter((info) => [5, 10, 15, 20].includes(info.hour));
+    ).filter((info) =>
+      _state.numberList.length === 0
+        ? true
+        : _state.numberList.includes(info.hour)
+    );
   });
+
+  readonly setNumberList = this.updater((_state, numberList: number[]) => ({
+    ..._state,
+    numberList,
+  }));
 }

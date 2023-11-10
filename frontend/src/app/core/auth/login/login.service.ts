@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ICredentials } from '@app/shared/models/credentials';
+import { Localization } from '@app/shared/models/localization';
 import { IUser } from '@app/shared/models/user';
 import { Observable } from 'rxjs';
 
@@ -28,5 +29,9 @@ export class LoginService {
 
   login(credentials: ICredentials): Observable<Required<IUser>> {
     return this.http.post<Required<IUser>>('api/auth', credentials);
+  }
+
+  getLocalizations(id: string): Observable<Localization[]> {
+    return this.http.get<Localization[]>(`api/users/localizations/${id}`);
   }
 }

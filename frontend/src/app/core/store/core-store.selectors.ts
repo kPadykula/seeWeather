@@ -17,3 +17,13 @@ export const getSelectedLocalization = createSelector(
   coreStoreSelectors,
   (_state) => _state.selectedLocalization
 );
+
+export const getUserLocalizations = createSelector(
+  coreStoreSelectors,
+  (_state) => _state.localizations
+);
+
+export const getUserId = createSelector(
+  coreStoreSelectors,
+  (_state) => _state.id
+);

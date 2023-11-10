@@ -3,6 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, map, tap } from 'rxjs';
 import { AuthSelectors } from './auth-store';
+import { coreActions } from '../store/core-store.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,13 @@ export class AuthGuard {
 
   isNotAuth(): Observable<boolean> {
     return this.store.select(AuthSelectors.isAuth).pipe(
-      tap((isAuth) => isAuth && this.router.navigate(['home'])),
+      tap((isAuth) => {
+        !isAuth &&
+          this.store.dispatch(
+            coreActions.setSelectedLocalizationPin({ localization: undefined })
+          );
+        isAuth && this.router.navigate(['/']);
+      }),
       map((isAuth) => !isAuth)
     );
   }

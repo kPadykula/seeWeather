@@ -11,4 +11,5 @@ export interface Localization extends Document {
   readonly x: string;
   readonly y: string;
   readonly enable: boolean;
+  readonly _id: mongoose.Schema.Types.ObjectId;
 }

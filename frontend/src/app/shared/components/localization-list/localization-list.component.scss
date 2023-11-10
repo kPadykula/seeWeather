@@ -1,0 +1,54 @@
+@import "src/assets/styles/variables";
+
+.localization-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp both 600ms;
+  animation-delay: 1.2s;
+
+  padding-top: 1rem;
+  z-index: 10;
+
+  .just-to-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .localization-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .localization-content {
+    height: 500px;
+  }
+
+  .localization-item-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .name {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}

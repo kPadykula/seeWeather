@@ -6,14 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 
   &.visible {
     animation: fadeInUp both 600ms;
+    display: flex;
     height: auto;
   }
 
   &.hidden {
     animation: fadeOut both 600ms;
-    height: 1px;
+    display: none;
+    height: 0px;
   }
 }

@@ -1,0 +1,37 @@
+<div class="localization-list-container" *ngIf="isAuth$ | async">
+  <div class="localization-content">
+    <div class="just-to-right">
+      <app-card>
+        <div class="localization-actions">
+          <i
+            class="pi pi-plus pointer"
+            [pTooltip]="'Add new localization'"
+            (click)="onAdd()"
+          ></i>
+        </div>
+      </app-card>
+    </div>
+    <p-accordion>
+      <ng-container *ngFor="let localization of localizations$ | async">
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            <div class="localization-item-header">
+              <div class="name">{{ localization.name }}</div>
+              <div class="actions">
+                <i
+                  class="pi pi-times pointer"
+                  [pTooltip]="'Remove localization'"
+                  (click)="onRemove($event, localization)"
+                ></i>
+              </div>
+            </div>
+          </ng-template>
+
+          <app-localization-item-list
+            [localization]="localization"
+          ></app-localization-item-list
+        ></p-accordionTab>
+      </ng-container>
+    </p-accordion>
+  </div>
+</div>

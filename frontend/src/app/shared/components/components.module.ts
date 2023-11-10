@@ -10,9 +10,22 @@ import { DaySwitchComponent } from './day-switch/day-switch.component';
 import { CommonModule } from '@angular/common';
 import { DetailsItemComponent } from './weather-details/details-list/details-item/details-item.component';
 import { DetailsListComponent } from './weather-details/details-list/details-list.component';
+import { LocalizationListComponent } from './localization-list/localization-list.component';
+import { PrimeNgModule } from '../prime.module';
+import { LocalizationItemListComponent } from './localization-list/localization-item/localization-item.component';
+import { LocalizationAddComponent } from './localization-list/localization-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [RouterModule, MapModule, CardComponent, CommonModule],
+  imports: [
+    RouterModule,
+    MapModule,
+    CardComponent,
+    CommonModule,
+    PrimeNgModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   declarations: [
     LoginCloudComponent,
     WelcomeComponent,
@@ -20,6 +33,9 @@ import { DetailsListComponent } from './weather-details/details-list/details-lis
     DaySwitchComponent,
     DetailsListComponent,
     DetailsItemComponent,
+    LocalizationListComponent,
+    LocalizationAddComponent,
+    LocalizationItemListComponent,
   ],
   exports: [
     CardComponent,
@@ -28,6 +44,7 @@ import { DetailsListComponent } from './weather-details/details-list/details-lis
     MapComponent,
     WeatherDetailsComponent,
     DaySwitchComponent,
+    LocalizationListComponent,
   ],
 })
 export class ComponentsModule {}

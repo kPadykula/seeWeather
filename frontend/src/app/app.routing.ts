@@ -7,7 +7,7 @@ import { isNotAuth } from './core/auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate: [isNotAuth],
   },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

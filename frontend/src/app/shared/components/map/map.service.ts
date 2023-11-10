@@ -5,6 +5,7 @@ import { Observable, map } from 'rxjs';
 import { MapCoordination } from './map-localizations';
 import {
   MappedApiResponse,
+  MappedApiResponseWithoutMap,
   MappedResponse,
   MeteoApiResponse,
   RainPrediction,
@@ -33,6 +34,17 @@ export class MapService {
       .pipe(map((res) => this.mapMeteoResponseToWeatherPin(localization, res)));
   }
 
+  getMeteoWithoutCoordination(
+    localization: Localization
+  ): Observable<MappedApiResponseWithoutMap> {
+    const url = this.mapLocalizationToRequestURL(localization);
+    return this.http
+      .get<MeteoApiResponse>(url)
+      .pipe(
+        map((res) => this.mapMeteoResponseToWeatherInfo(localization, res))
+      );
+  }
+
   private mapLocalizationToRequestURL(localization: Localization): string {
     return `https://api.open-meteo.com/v1/forecast?latitude=${localization.x}&longitude=${localization.y}&hourly=temperature_2m,precipitation,windspeed_10m&timezone=Europe%2FBerlin`;
   }
@@ -41,6 +53,17 @@ export class MapService {
     localization: Localization & MapCoordination,
     meteo: MeteoApiResponse
   ): MappedApiResponse {
+    const mappedResponse: MappedResponse = this.mapResponseByDate(meteo);
+    return {
+      ...localization,
+      ...mappedResponse,
+    };
+  }
+
+  private mapMeteoResponseToWeatherInfo(
+    localization: Localization,
+    meteo: MeteoApiResponse
+  ): MappedApiResponseWithoutMap {
     const mappedResponse: MappedResponse = this.mapResponseByDate(meteo);
     return {
       ...localization,
